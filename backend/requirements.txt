@@ -1,0 +1,10 @@
+fastapi==0.110.2
+uvicorn[standard]==0.29.0
+celery==5.3.6
+redis==5.0.1
+kombu==5.3.5
+pydantic==1.10.14
+cmdstanpy==1.2.2
+stable-baselines3==2.3.2
+gymnasium==0.29.1
+numpy==1.26.4
