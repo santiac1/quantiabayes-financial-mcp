@@ -39,13 +39,13 @@ services:
       - "6379:6379"
 
   supabase_db:
-    image: supabase/postgres:15.1.0
+    image: postgres:15-alpine
     environment:
       POSTGRES_PASSWORD: postgres
       POSTGRES_USER: postgres
       POSTGRES_DB: postgres
     ports:
-      - "5432:5432"
+      - "6543:5432"
     volumes:
       - supabase_data:/var/lib/postgresql/data
 
@@ -54,6 +54,7 @@ services:
     command: npm run dev
     volumes:
       - ./frontend:/app
+      - /app/node_modules
     environment:
       - NEXT_PUBLIC_API_BASE=http://localhost:8000
     depends_on:

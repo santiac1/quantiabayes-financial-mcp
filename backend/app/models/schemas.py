@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import List
+from typing import Dict, List, Optional
 
 from pydantic import BaseModel, Field
 
@@ -26,3 +26,8 @@ class ForecastPoint(BaseModel):
 class SimulationResult(BaseModel):
     forecast_data: List[ForecastPoint]
     recommended_action: str
+    analytics: Optional[Dict[str, float]] = Field(
+        default=None,
+        description="Métricas financieras analíticas: monthly_avg_income, monthly_avg_expenses, expense_volatility, savings_rate, trend_slope"
+    )
+
